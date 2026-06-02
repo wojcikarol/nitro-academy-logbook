@@ -5,7 +5,7 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/package.json": {
-    "mtime": 1780425942.0503266,
+    "mtime": 1780430731.128437,
     "ast_hash": "8129d8a2e93ff52fb481935035f45cf8",
     "semantic_hash": ""
   },
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/schema.ts": {
-    "mtime": 1779821418.873815,
-    "ast_hash": "ee87a5868dbcec7957bb37d8cac273cd",
+    "mtime": 1780429370.50257,
+    "ast_hash": "5698f226c485addb308786865c7b23a9",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/trips.ts": {
@@ -45,33 +45,33 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/routes.ts": {
-    "mtime": 1779821419.1404324,
-    "ast_hash": "218d3fc0f3ea804a9de90a857e86413e",
+    "mtime": 1780429390.2773693,
+    "ast_hash": "ea347007078851e284a258f416f3c876",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/cars.ts": {
-    "mtime": 1779821435.8664892,
-    "ast_hash": "d1a87214934c0e67a1a61348807cfba9",
+    "mtime": 1780429390.2261431,
+    "ast_hash": "7faabfa85829575b36e03e17299265e2",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/helpers.ts": {
-    "mtime": 1779821435.813367,
-    "ast_hash": "d487364f317525b5db3ac3919391eef0",
+    "mtime": 1780429487.8741968,
+    "ast_hash": "067e952f4c6e8349d2033bbd108a724b",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/settings.ts": {
-    "mtime": 1779821579.4452703,
-    "ast_hash": "573c3842242f1d908f95a39d2e03dc99",
+    "mtime": 1780429370.6646733,
+    "ast_hash": "dc476e831c2e95221a06842df12cb29b",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/app.ts": {
-    "mtime": 1779821744.0786276,
-    "ast_hash": "6fc4da726a26db82405e031480b2f0c0",
+    "mtime": 1780429370.610328,
+    "ast_hash": "a2bfd19f8593583d85573b10484b602c",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/seed.ts": {
-    "mtime": 1779821927.4969714,
-    "ast_hash": "fd60404185c10b329524d5aa8a4b6e72",
+    "mtime": 1780429390.3316674,
+    "ast_hash": "e5eb9ec363f4028f3f1a03a83406b2a0",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/convex/tsconfig.json": {
@@ -120,12 +120,12 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/scripts/generate-static-index.mjs": {
-    "mtime": 1780426195.18146,
+    "mtime": 1780430731.186867,
     "ast_hash": "ca68c9e626207bf16b851cf66f38fb07",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/.wrangler/deploy/config.json": {
-    "mtime": 1780426203.135146,
+    "mtime": 1780430740.5496645,
     "ast_hash": "9d663abcd158c67f171c437cb71f9503",
     "semantic_hash": ""
   },
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/components/StatsPanel.tsx": {
-    "mtime": 1779454966.182853,
-    "ast_hash": "7771e9e419e8a0e4743a71da93afd9ce",
+    "mtime": 1780429493.2608254,
+    "ast_hash": "c76034bf8e6a32f113ee33096396dbfb",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/components/HistoryTable.tsx": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/components/HeroStats.tsx": {
-    "mtime": 1779454966.2872727,
-    "ast_hash": "9da66025d1c03426844a93036ac1a085",
+    "mtime": 1780429452.9546928,
+    "ast_hash": "4c89bb922212d65fa8f0b4ac62b5aa7d",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/components/DriverForm.tsx": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/lib/store.tsx": {
-    "mtime": 1779821940.8991523,
-    "ast_hash": "95517b07e64d9c47b5db3ec611aa9e3a",
+    "mtime": 1780429441.1417193,
+    "ast_hash": "12a35eebffea0bb6f66de2f03045161f",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/lib/utils.ts": {
@@ -492,6 +492,11 @@
   "/Users/karolwojcik/Documents/nitro-academy-logbook/src/routes/garage.tsx": {
     "mtime": 1779821579.8102875,
     "ast_hash": "817bda2ef572788c735978c03fa9e5e5",
+    "semantic_hash": ""
+  },
+  "/Users/karolwojcik/Documents/nitro-academy-logbook/src/lib/ranking.ts": {
+    "mtime": 1780429441.1929312,
+    "ast_hash": "f48da87d59c7a375f8123e34aaa5da9c",
     "semantic_hash": ""
   }
 }

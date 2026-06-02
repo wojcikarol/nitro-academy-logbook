@@ -70,6 +70,9 @@ export const defaults = mutation({
       for (const doc of await ctx.db.query("settings").collect()) {
         await ctx.db.delete(doc._id);
       }
+      for (const doc of await ctx.db.query("sessionDashboards").collect()) {
+        await ctx.db.delete(doc._id);
+      }
     }
 
     const now = Date.now();

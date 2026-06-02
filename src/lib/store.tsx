@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import type { Id } from "../../convex/_generated/dataModel";
@@ -19,6 +19,7 @@ import {
 import { isConvexConfigured } from "./convex";
 
 const CUSTOM_ROUTE_ID = "custom";
+const SESSION_STORAGE_KEY = "nitro-academy-logbook:session-id";
 
 export type LoadStatus = "idle" | "loading" | "success" | "error";
 
@@ -81,6 +82,41 @@ interface StoreCtx {
 
 const Ctx = createContext<StoreCtx | null>(null);
 
+function createSessionId() {
+  if (globalThis.crypto?.randomUUID) {
+    return globalThis.crypto.randomUUID();
+  }
+
+  if (!globalThis.crypto?.getRandomValues) {
+    throw new Error("Secure random UUID generation is not available in this browser.");
+  }
+
+  const bytes = new Uint8Array(16);
+  globalThis.crypto.getRandomValues(bytes);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+  const hex = [...bytes].map((byte) => byte.toString(16).padStart(2, "0"));
+  return [
+    hex.slice(0, 4).join(""),
+    hex.slice(4, 6).join(""),
+    hex.slice(6, 8).join(""),
+    hex.slice(8, 10).join(""),
+    hex.slice(10, 16).join(""),
+  ].join("-");
+}
+
+function getStoredSessionId() {
+  if (typeof window === "undefined") return null;
+
+  const existing = window.localStorage.getItem(SESSION_STORAGE_KEY);
+  if (existing) return existing;
+
+  const sessionId = createSessionId();
+  window.localStorage.setItem(SESSION_STORAGE_KEY, sessionId);
+  return sessionId;
+}
+
 function clampDistance(km: number) {
   return Math.max(0.1, Math.min(999, km));
 }
@@ -139,8 +175,16 @@ function toTrip(doc: {
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [localError, setLocalError] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(() => getStoredSessionId());
 
-  const appData = useQuery(api.app.getAppData, isConvexConfigured ? {} : "skip");
+  useEffect(() => {
+    setSessionId((current) => current ?? getStoredSessionId());
+  }, []);
+
+  const appData = useQuery(
+    api.app.getAppData,
+    isConvexConfigured && sessionId ? { sessionId } : "skip",
+  );
 
   const createUser = useMutation(api.users.create);
   const createCar = useMutation(api.cars.create);
@@ -173,10 +217,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const trips = useMemo(() => appData?.trips.map(toTrip) ?? [], [appData]);
 
   const settings = appData?.settings;
+  const dashboard = appData?.dashboard;
   const fuelPrices = settings?.fuelPrices ?? DEFAULT_FUEL_PRICES;
-  const selectedCarId = settings?.selectedCarId ?? cars[0]?.id ?? DEFAULT_CARS[0].id;
-  const selectedRouteId = settings?.selectedRouteId ?? routes[0]?.id ?? CUSTOM_ROUTE_ID;
-  const routeDistance = settings?.routeDistance ?? routes[0]?.distance ?? ROUTE_DISTANCE_KM;
+  const selectedCarId = dashboard?.selectedCarId ?? cars[0]?.id ?? DEFAULT_CARS[0].id;
+  const selectedRouteId = dashboard?.selectedRouteId ?? routes[0]?.id ?? CUSTOM_ROUTE_ID;
+  const routeDistance = dashboard?.routeDistance ?? routes[0]?.distance ?? ROUTE_DISTANCE_KM;
   const favoriteCarIds = cars.filter((car) => car.favorite).map((car) => car.id);
 
   const selectedCar = cars.find((c) => c.id === selectedCarId) ?? cars[0] ?? DEFAULT_CARS[0];
@@ -186,13 +231,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     selectedRouteId === CUSTOM_ROUTE_ID
       ? null
       : (routes.find((route) => route.id === selectedRouteId) ?? routes[0] ?? null);
-  const isCustomRoute = selectedRouteId === CUSTOM_ROUTE_ID || !settings?.selectedRouteId;
+  const isCustomRoute = selectedRouteId === CUSTOM_ROUTE_ID || !dashboard?.selectedRouteId;
 
   const seeded =
     !!appData?.settings && (appData?.users.length ?? 0) > 0 && (appData?.cars.length ?? 0) > 0;
   const status: LoadStatus = !isConvexConfigured
     ? "error"
-    : appData === undefined
+    : !sessionId || appData === undefined
       ? "loading"
       : seeded
         ? "success"
@@ -244,8 +289,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     isCustomRoute,
 
     selectCar: (id) => {
-      if (!isConvexConfigured) return;
-      setSelectedCarMutation({ carId: id as Id<"cars"> }).catch((error) => {
+      if (!isConvexConfigured || !sessionId) return;
+      setSelectedCarMutation({ sessionId, carId: id as Id<"cars"> }).catch((error) => {
         console.error("Nie udało się wybrać auta w Convex", error);
         setLocalError("Nie udało się wybrać auta w Convex.");
       });
@@ -259,8 +304,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const next = (safeIdx + dir + cars.length) % cars.length;
       const nextCar = cars[next];
 
-      if (nextCar) {
-        setSelectedCarMutation({ carId: nextCar.id as Id<"cars"> }).catch((error) => {
+      if (nextCar && sessionId) {
+        setSelectedCarMutation({ sessionId, carId: nextCar.id as Id<"cars"> }).catch((error) => {
           console.error("Nie udało się zmienić auta w Convex", error);
           setLocalError("Nie udało się zmienić auta w Convex.");
         });
@@ -325,6 +370,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
             fuel,
             consumption,
             image,
+            sessionId: sessionId ?? undefined,
           }),
         "Nie udało się dodać auta w Convex.",
       );
@@ -351,16 +397,17 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     isFavorite: (id) => favoriteCarIds.includes(id),
 
     setRouteDistance: (km) => {
-      if (!isConvexConfigured) return;
-      setRouteDistanceMutation({ distance: clampDistance(km) }).catch((error) => {
+      if (!isConvexConfigured || !sessionId) return;
+      setRouteDistanceMutation({ sessionId, distance: clampDistance(km) }).catch((error) => {
         console.error("Nie udało się zapisać dystansu w Convex", error);
         setLocalError("Nie udało się zapisać dystansu w Convex.");
       });
     },
 
     selectRoute: (id) => {
-      if (!isConvexConfigured) return;
+      if (!isConvexConfigured || !sessionId) return;
       selectRouteMutation({
+        sessionId,
         routeId: id === CUSTOM_ROUTE_ID ? undefined : (id as Id<"routes">),
       }).catch((error) => {
         console.error("Nie udało się wybrać trasy w Convex", error);

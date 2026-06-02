@@ -9,35 +9,35 @@
     "file": "assets/styles-D6oD1wvg.css",
     "src": "/Users/karolwojcik/Documents/nitro-academy-logbook/src/styles.css"
   },
-  "_HistoryTable-Cs_TEgwB.js": {
-    "file": "assets/HistoryTable-Cs_TEgwB.js",
+  "_HistoryTable-Jb26Z9-l.js": {
+    "file": "assets/HistoryTable-Jb26Z9-l.js",
     "name": "HistoryTable",
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_trash-2-plaHW8nU.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_trash-2-DLU6M1u6.js"
     ]
   },
-  "_clock-CcTHJTBa.js": {
-    "file": "assets/clock-CcTHJTBa.js",
-    "name": "clock",
-    "imports": [
-      "_router-CmQhYyjk.js"
-    ]
-  },
-  "_plus-Bto2ib5y.js": {
-    "file": "assets/plus-Bto2ib5y.js",
+  "_plus-DB0RoWjZ.js": {
+    "file": "assets/plus-DB0RoWjZ.js",
     "name": "plus",
     "imports": [
-      "_router-CmQhYyjk.js"
+      "_router-DJR9hsiu.js"
     ]
   },
-  "_router-CmQhYyjk.js": {
-    "file": "assets/router-CmQhYyjk.js",
+  "_ranking-C5y2mlrS.js": {
+    "file": "assets/ranking-C5y2mlrS.js",
+    "name": "ranking",
+    "imports": [
+      "_router-DJR9hsiu.js"
+    ]
+  },
+  "_router-DJR9hsiu.js": {
+    "file": "assets/router-DJR9hsiu.js",
     "name": "router",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js"
+      "_server-OKjSpNgL.js"
     ],
     "dynamicImports": [
       "src/routes/stats.tsx?tsr-split=component",
@@ -55,43 +55,43 @@
       "assets/styles-D6oD1wvg.css"
     ]
   },
-  "_server-CNkOidSH.js": {
-    "file": "assets/server-CNkOidSH.js",
+  "_server-OKjSpNgL.js": {
+    "file": "assets/server-OKjSpNgL.js",
     "name": "server",
     "isDynamicEntry": true,
     "dynamicImports": [
       "tanstack-start-manifest:v",
-      "_router-CmQhYyjk.js",
+      "_router-DJR9hsiu.js",
       "src/start.ts",
       "%23tanstack-start-plugin-adapters"
     ]
   },
-  "_trash-2-plaHW8nU.js": {
-    "file": "assets/trash-2-plaHW8nU.js",
+  "_trash-2-DLU6M1u6.js": {
+    "file": "assets/trash-2-DLU6M1u6.js",
     "name": "trash-2",
     "imports": [
-      "_router-CmQhYyjk.js"
+      "_router-DJR9hsiu.js"
     ]
   },
-  "_user-plus-CbMgxYKB.js": {
-    "file": "assets/user-plus-CbMgxYKB.js",
+  "_user-plus-Lz-rU15-.js": {
+    "file": "assets/user-plus-Lz-rU15-.js",
     "name": "user-plus",
     "imports": [
-      "_router-CmQhYyjk.js"
+      "_router-DJR9hsiu.js"
     ]
   },
-  "_worker-entry-Do43wr3H.js": {
-    "file": "assets/worker-entry-Do43wr3H.js",
+  "_worker-entry-C_9qJE5B.js": {
+    "file": "assets/worker-entry-C_9qJE5B.js",
     "name": "worker-entry",
     "dynamicImports": [
-      "_server-CNkOidSH.js"
+      "_server-OKjSpNgL.js"
     ]
   },
-  "_x-DtbFno5d.js": {
-    "file": "assets/x-DtbFno5d.js",
+  "_x-LulhXXhH.js": {
+    "file": "assets/x-LulhXXhH.js",
     "name": "x",
     "imports": [
-      "_router-CmQhYyjk.js"
+      "_router-DJR9hsiu.js"
     ]
   },
   "src/assets/car-1.png": {
@@ -111,90 +111,90 @@
     "src": "src/assets/car-4.png"
   },
   "src/routes/drivers.tsx?tsr-split=component": {
-    "file": "assets/drivers-Bot03kdI.js",
+    "file": "assets/drivers-qHCCUBj5.js",
     "name": "drivers",
     "src": "src/routes/drivers.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_user-plus-CbMgxYKB.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_user-plus-Lz-rU15-.js"
     ]
   },
   "src/routes/garage.tsx?tsr-split=component": {
-    "file": "assets/garage-DekknwL4.js",
+    "file": "assets/garage-Dk9K9DMk.js",
     "name": "garage",
     "src": "src/routes/garage.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_user-plus-CbMgxYKB.js",
-      "_x-DtbFno5d.js",
-      "_trash-2-plaHW8nU.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_user-plus-Lz-rU15-.js",
+      "_x-LulhXXhH.js",
+      "_trash-2-DLU6M1u6.js"
     ]
   },
   "src/routes/history.tsx?tsr-split=component": {
-    "file": "assets/history-DayboWGp.js",
+    "file": "assets/history-cyDYlz51.js",
     "name": "history",
     "src": "src/routes/history.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_HistoryTable-Cs_TEgwB.js",
-      "_router-CmQhYyjk.js",
-      "_trash-2-plaHW8nU.js"
+      "_server-OKjSpNgL.js",
+      "_HistoryTable-Jb26Z9-l.js",
+      "_router-DJR9hsiu.js",
+      "_trash-2-DLU6M1u6.js"
     ]
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-Bo4p_J3H.js",
+    "file": "assets/index-CFpyxlj7.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_plus-Bto2ib5y.js",
-      "_x-DtbFno5d.js",
-      "_clock-CcTHJTBa.js",
-      "_HistoryTable-Cs_TEgwB.js",
-      "_trash-2-plaHW8nU.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_plus-DB0RoWjZ.js",
+      "_x-LulhXXhH.js",
+      "_ranking-C5y2mlrS.js",
+      "_HistoryTable-Jb26Z9-l.js",
+      "_trash-2-DLU6M1u6.js"
     ]
   },
   "src/routes/settings.tsx?tsr-split=component": {
-    "file": "assets/settings-TkZvB3YJ.js",
+    "file": "assets/settings-bxnVqM90.js",
     "name": "settings",
     "src": "src/routes/settings.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_plus-Bto2ib5y.js",
-      "_trash-2-plaHW8nU.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_plus-DB0RoWjZ.js",
+      "_trash-2-DLU6M1u6.js"
     ]
   },
   "src/routes/stats.tsx?tsr-split=component": {
-    "file": "assets/stats-DWXdjuoS.js",
+    "file": "assets/stats-hl94oKgL.js",
     "name": "stats",
     "src": "src/routes/stats.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_server-CNkOidSH.js",
-      "_router-CmQhYyjk.js",
-      "_clock-CcTHJTBa.js"
+      "_server-OKjSpNgL.js",
+      "_router-DJR9hsiu.js",
+      "_ranking-C5y2mlrS.js"
     ]
   },
   "src/start.ts": {
-    "file": "assets/start-sA4epfAJ.js",
+    "file": "assets/start-BSgjlCgq.js",
     "name": "start",
     "src": "src/start.ts",
     "isDynamicEntry": true,
     "imports": [
-      "_worker-entry-Do43wr3H.js"
+      "_worker-entry-C_9qJE5B.js"
     ]
   },
   "tanstack-start-manifest:v": {
-    "file": "assets/_tanstack-start-manifest_v-BP2UzmOs.js",
+    "file": "assets/_tanstack-start-manifest_v-ChkanIjr.js",
     "name": "_tanstack-start-manifest_v",
     "src": "tanstack-start-manifest:v",
     "isDynamicEntry": true
@@ -205,7 +205,7 @@
     "src": "virtual:cloudflare/worker-entry",
     "isEntry": true,
     "imports": [
-      "_worker-entry-Do43wr3H.js"
+      "_worker-entry-C_9qJE5B.js"
     ]
   }
 }

@@ -44,18 +44,8 @@ export const remove = mutation({
     if (route.isDefault) throw new ConvexError("Nie można usunąć domyślnej trasy.");
 
     await ctx.db.delete(args.id);
-
-    const settings = await ctx.db
-      .query("settings")
-      .withIndex("by_key", (q) => q.eq("key", "global"))
-      .unique();
-
-    if (settings?.selectedRouteId === args.id) {
-      await ctx.db.patch(settings._id, {
-        selectedRouteId: undefined,
-        updatedAt: Date.now(),
-      });
-    }
+    // Active route selection is private session state. Deleted routes are
+    // resolved by the frontend fallback for each session independently.
   },
 });
 

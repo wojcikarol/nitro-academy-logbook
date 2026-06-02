@@ -1,5 +1,6 @@
 import { Activity, Calendar, Clock, Trophy } from "lucide-react";
 import { useStore } from "@/lib/store";
+import { rankDrivers } from "@/lib/ranking";
 const DAY = 24 * 60 * 60 * 1000;
 
 export function StatsPanel() {
@@ -92,19 +93,8 @@ export function StatsPanel() {
 }
 
 function Rankings() {
-  const { trips, users, cars, costOfTrip } = useStore();
-  const userKm = users
-    .map((u) => {
-      const ts = trips.filter((t) => t.userId === u.id);
-      const km = ts.reduce((s, t) => s + t.distance, 0);
-      return {
-        user: u,
-        count: ts.length,
-        km,
-        cost: ts.reduce((s, t) => s + costOfTrip(t.carId, t.distance), 0),
-      };
-    })
-    .sort((a, b) => b.km - a.km);
+  const { trips, users, cars } = useStore();
+  const userKm = rankDrivers(users, trips);
 
   const carRank = cars
     .map((c) => {

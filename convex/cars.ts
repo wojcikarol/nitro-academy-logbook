@@ -2,7 +2,7 @@ import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import type { Id } from "./_generated/dataModel";
 import type { MutationCtx } from "./_generated/server";
-import { fuelValidator, requirePositiveNumber } from "./helpers";
+import { ensureSessionDashboard, fuelValidator, requirePositiveNumber } from "./helpers";
 
 export const list = query({
   args: {
@@ -28,6 +28,7 @@ export const create = mutation({
     consumption: v.number(),
     image: v.optional(v.string()),
     ownerId: v.optional(v.string()),
+    sessionId: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const name = args.name.trim();
@@ -52,7 +53,9 @@ export const create = mutation({
       updatedAt: now,
     });
 
-    await setSelectedCar(ctx, id);
+    if (args.sessionId) {
+      await setSelectedCar(ctx, args.sessionId, id);
+    }
     return await ctx.db.get(id);
   },
 });
@@ -123,20 +126,8 @@ export const remove = mutation({
       updatedAt: Date.now(),
     });
 
-    const settings = await ctx.db
-      .query("settings")
-      .withIndex("by_key", (q) => q.eq("key", "global"))
-      .unique();
-
-    if (settings?.selectedCarId === args.id) {
-      const nextCar = activeCars.find((item) => item._id !== args.id);
-      if (nextCar) {
-        await ctx.db.patch(settings._id, {
-          selectedCarId: nextCar._id,
-          updatedAt: Date.now(),
-        });
-      }
-    }
+    // Selection is private session state. If a session had this car selected,
+    // the frontend falls back to the first active car without touching other sessions.
   },
 });
 
@@ -155,14 +146,11 @@ export const toggleFavorite = mutation({
   },
 });
 
-async function setSelectedCar(ctx: MutationCtx, id: Id<"cars">) {
-  const settings = await ctx.db
-    .query("settings")
-    .withIndex("by_key", (q) => q.eq("key", "global"))
-    .unique();
+async function setSelectedCar(ctx: MutationCtx, sessionId: string, id: Id<"cars">) {
+  const dashboard = await ensureSessionDashboard(ctx, sessionId);
 
-  if (settings) {
-    await ctx.db.patch(settings._id, {
+  if (dashboard) {
+    await ctx.db.patch(dashboard._id, {
       selectedCarId: id,
       updatedAt: Date.now(),
     });

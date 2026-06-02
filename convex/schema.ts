@@ -63,6 +63,8 @@ export default defineSchema({
       benzyna: v.number(),
       diesel: v.number(),
     }),
+    // Legacy global dashboard fields. New code stores these per browser session
+    // in sessionDashboards; keeping them optional avoids breaking existing data.
     selectedCarId: v.optional(v.id("cars")),
     selectedRouteId: v.optional(v.id("routes")),
     routeDistance: v.number(),
@@ -72,4 +74,13 @@ export default defineSchema({
   })
     .index("by_key", ["key"])
     .index("by_owner", ["ownerId"]),
+
+  sessionDashboards: defineTable({
+    sessionId: v.string(),
+    selectedCarId: v.optional(v.id("cars")),
+    selectedRouteId: v.optional(v.id("routes")),
+    routeDistance: v.number(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_session", ["sessionId"]),
 });

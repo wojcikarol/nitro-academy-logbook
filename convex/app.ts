@@ -1,10 +1,13 @@
 import { query } from "./_generated/server";
-import { getSettings } from "./helpers";
+import { v } from "convex/values";
+import { getSessionDashboard, getSettings } from "./helpers";
 
 export const getAppData = query({
-  args: {},
-  handler: async (ctx) => {
-    const [users, cars, routes, trips, settings] = await Promise.all([
+  args: {
+    sessionId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const [users, cars, routes, trips, settings, dashboard] = await Promise.all([
       ctx.db.query("users").collect(),
       ctx.db
         .query("cars")
@@ -13,6 +16,7 @@ export const getAppData = query({
       ctx.db.query("routes").collect(),
       ctx.db.query("trips").withIndex("by_timestamp").order("desc").collect(),
       getSettings(ctx),
+      getSessionDashboard(ctx, args.sessionId),
     ]);
 
     return {
@@ -21,6 +25,7 @@ export const getAppData = query({
       routes,
       trips,
       settings,
+      dashboard,
     };
   },
 });

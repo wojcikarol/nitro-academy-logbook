@@ -1,5 +1,6 @@
 import { Activity, Calendar, Clock, Coins, MapPin, Trophy } from "lucide-react";
 import { useStore } from "@/lib/store";
+import { rankDrivers } from "@/lib/ranking";
 
 const DAY = 24 * 60 * 60 * 1000;
 
@@ -14,12 +15,7 @@ export function HeroStats() {
   const totalKm = trips.reduce((s, t) => s + t.distance, 0);
   const totalCost = trips.reduce((s, t) => s + costOfTrip(t.carId, t.distance), 0);
 
-  const top = users
-    .map((u) => ({
-      user: u,
-      count: trips.filter((t) => t.userId === u.id).length,
-    }))
-    .sort((a, b) => b.count - a.count)[0];
+  const top = rankDrivers(users, trips)[0];
 
   const routeName = isCustomRoute ? "Własna trasa" : (selectedRoute?.name ?? "Trasa");
 
