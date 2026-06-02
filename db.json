@@ -1,0 +1,103 @@
+{
+  "trips": [
+    {
+      "id": "i_wC5ci1xGk",
+      "carId": "c2",
+      "userId": "u2",
+      "distance": 19.8,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "Qn8R4xMWaGY",
+      "carId": "c2",
+      "userId": "u2",
+      "distance": 19.8,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "XV7eEejkqcE",
+      "carId": "c1",
+      "userId": "u1",
+      "distance": 3,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "yz-NYIkljU4",
+      "carId": "c1",
+      "userId": "u1",
+      "distance": 3,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "LOD3RXc2Ze8",
+      "carId": "c1",
+      "userId": "u1",
+      "distance": 19.8,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "MuU0KPm2FTE",
+      "carId": "c1",
+      "userId": "u1",
+      "distance": 19.8,
+      "timestamp": 1778841180000
+    },
+    {
+      "id": "ZakFXsONNAE",
+      "carId": "c3",
+      "userId": "u3",
+      "distance": 3,
+      "timestamp": 1778841360000
+    },
+    {
+      "id": "11BJrevohhU",
+      "carId": "c3",
+      "userId": "u3",
+      "distance": 3,
+      "timestamp": 1778841360000
+    },
+    {
+      "id": "8nWHMLAqWa0",
+      "carId": "c3",
+      "userId": "u3",
+      "distance": 19.8,
+      "timestamp": 1778841360000
+    },
+    {
+      "id": "Bp2eZ664rSM",
+      "carId": "c3",
+      "userId": "u3",
+      "distance": 19.8,
+      "timestamp": 1778841360000
+    },
+    {
+      "id": "TzKe6NqrkEg",
+      "carId": "c4",
+      "userId": "u4",
+      "distance": 3,
+      "timestamp": 1778841420000
+    },
+    {
+      "id": "MewNZCipPoA",
+      "carId": "c4",
+      "userId": "u4",
+      "distance": 3,
+      "timestamp": 1778841420000
+    },
+    {
+      "id": "dHwHvugr6XM",
+      "carId": "c4",
+      "userId": "u4",
+      "distance": 19.8,
+      "timestamp": 1778841420000
+    },
+    {
+      "id": "fJpdCozcTvo",
+      "carId": "c4",
+      "userId": "u4",
+      "distance": 19.8,
+      "timestamp": 1778841420000
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

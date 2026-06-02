@@ -1,0 +1,17 @@
+# rzeczy ciężkie / niepotrzebne dla tokenów
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.git/
+
+# wyłącz semantic extraction wymagające OpenAI
+*.md
+*.mdx
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.svg
