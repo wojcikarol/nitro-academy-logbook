@@ -20,6 +20,7 @@ import { isConvexConfigured } from "./convex";
 
 const CUSTOM_ROUTE_ID = "custom";
 const SESSION_STORAGE_KEY = "nitro-academy-logbook:session-id";
+let inMemorySessionId: string | null = null;
 
 export type LoadStatus = "idle" | "loading" | "success" | "error";
 
@@ -109,12 +110,18 @@ function createSessionId() {
 function getStoredSessionId() {
   if (typeof window === "undefined") return null;
 
-  const existing = window.localStorage.getItem(SESSION_STORAGE_KEY);
-  if (existing) return existing;
+  try {
+    const existing = window.localStorage.getItem(SESSION_STORAGE_KEY);
+    if (existing) return existing;
 
-  const sessionId = createSessionId();
-  window.localStorage.setItem(SESSION_STORAGE_KEY, sessionId);
-  return sessionId;
+    const sessionId = createSessionId();
+    window.localStorage.setItem(SESSION_STORAGE_KEY, sessionId);
+    return sessionId;
+  } catch (error) {
+    console.warn("Nie udało się zapisać sessionId w localStorage.", error);
+    inMemorySessionId ??= createSessionId();
+    return inMemorySessionId;
+  }
 }
 
 function clampDistance(km: number) {
@@ -175,7 +182,7 @@ function toTrip(doc: {
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [localError, setLocalError] = useState<string | null>(null);
-  const [sessionId, setSessionId] = useState<string | null>(() => getStoredSessionId());
+  const [sessionId, setSessionId] = useState<string | null>(null);
 
   useEffect(() => {
     setSessionId((current) => current ?? getStoredSessionId());
