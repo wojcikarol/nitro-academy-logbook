@@ -1,16 +1,16 @@
 # Graph Report - nitro-academy-logbook  (2026-06-02)
 
 ## Corpus Check
-- 99 files · ~25,780 words
+- 99 files · ~25,808 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 727 nodes · 1015 edges · 57 communities (46 shown, 11 thin omitted)
+- 727 nodes · 1015 edges · 56 communities (46 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cf50e885`
+- Built from commit: `832b8a24`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,6 @@
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 15|Community 15]]
@@ -93,7 +92,7 @@
 - `DrawerHeader()` --calls--> `cn()`  [EXTRACTED]
   src/components/ui/drawer.tsx → src/lib/utils.ts
 
-## Communities (57 total, 11 thin omitted)
+## Communities (56 total, 10 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.04
@@ -128,8 +127,8 @@ Cohesion: 0.14
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.14
-Nodes (13): cn(), Checkbox, HoverCardContent, PopoverContent, Progress, ResizableHandle(), ResizablePanelGroup(), ScrollArea (+5 more)
+Cohesion: 0.12
+Nodes (15): cn(), Checkbox, HoverCardContent, PopoverContent, Progress, RadioGroup, RadioGroupItem, ResizableHandle() (+7 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.12
@@ -266,12 +265,12 @@ Nodes (3): AccordionContent, AccordionItem, AccordionTrigger
 ## Knowledge Gaps
 - **426 isolated node(s):** `dev`, `build`, `build:dev`, `preview`, `lint` (+421 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 8` to `Community 2`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Community 18`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 25`, `Community 26`, `Community 32`, `Community 33`, `Community 35`, `Community 36`, `Community 37`, `Community 38`, `Community 44`, `Community 57`?**
+- **Why does `cn()` connect `Community 8` to `Community 2`, `Community 9`, `Community 10`, `Community 14`, `Community 15`, `Community 16`, `Community 18`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 25`, `Community 26`, `Community 32`, `Community 33`, `Community 35`, `Community 36`, `Community 37`, `Community 38`, `Community 44`, `Community 57`?**
   _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Community 0` to `Community 17`, `Community 27`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._

@@ -2302,7 +2302,7 @@
       "label": "BigStat()",
       "file_type": "code",
       "source_file": "src/components/StatsPanel.tsx",
-      "source_location": "L153",
+      "source_location": "L161",
       "id": "components_statspanel_bigstat",
       "community": 4,
       "norm_label": "bigstat()"
@@ -3546,7 +3546,7 @@
       "source_file": "src/components/ui/radio-group.tsx",
       "source_location": "L1",
       "id": "src_components_ui_radio_group_tsx",
-      "community": 12,
+      "community": 8,
       "norm_label": "radio-group.tsx"
     },
     {
@@ -3555,7 +3555,7 @@
       "source_file": "src/components/ui/radio-group.tsx",
       "source_location": "L7",
       "id": "ui_radio_group_radiogroup",
-      "community": 12,
+      "community": 8,
       "norm_label": "radiogroup"
     },
     {
@@ -3564,7 +3564,7 @@
       "source_file": "src/components/ui/radio-group.tsx",
       "source_location": "L15",
       "id": "ui_radio_group_radiogroupitem",
-      "community": 12,
+      "community": 8,
       "norm_label": "radiogroupitem"
     },
     {
@@ -6594,9 +6594,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_name",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_name"
     },
     {
       "relation": "contains",
@@ -6604,9 +6604,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_private",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_private"
     },
     {
       "relation": "contains",
@@ -6614,9 +6614,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_sideeffects",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_sideeffects"
     },
     {
       "relation": "contains",
@@ -6624,9 +6624,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_type",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_type"
     },
     {
       "relation": "contains",
@@ -6634,9 +6634,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_scripts",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_scripts"
     },
     {
       "relation": "contains",
@@ -6644,9 +6644,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_dependencies",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_dependencies"
     },
     {
       "relation": "contains",
@@ -6654,9 +6654,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "users_karolwojcik_documents_nitro_academy_logbook_2_package_json",
-      "target": "nitro_academy_logbook_2_package_devdependencies",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_devdependencies"
     },
     {
       "relation": "contains",
@@ -7054,9 +7054,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "nitro_academy_logbook_2_package_dependencies",
-      "target": "nitro_academy_logbook_2_package_dependencies_radix_ui_react_toggle_group",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_dependencies_radix_ui_react_toggle_group"
     },
     {
       "relation": "contains",
@@ -7154,9 +7154,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "nitro_academy_logbook_2_package_dependencies",
-      "target": "nitro_academy_logbook_2_package_dependencies_convex",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_dependencies_convex"
     },
     {
       "relation": "contains",
@@ -7384,9 +7384,9 @@
       "source_file": "/Users/karolwojcik/Documents/nitro-academy-logbook 2/package.json",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "nitro_academy_logbook_2_package_devdependencies",
-      "target": "nitro_academy_logbook_2_package_devdependencies_types_react_dom",
-      "confidence_score": 1.0
+      "target": "nitro_academy_logbook_2_package_devdependencies_types_react_dom"
     },
     {
       "relation": "contains",
@@ -17052,5 +17052,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cf50e88547117d47d1d0090e18b6a2d2bdcadf01"
+  "built_at_commit": "832b8a24b257e56b7f30881f90fa19b82d82b098"
 }

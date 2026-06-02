@@ -102,7 +102,15 @@ function Rankings() {
       const km = ts.reduce((s, t) => s + t.distance, 0);
       return { car: c, count: ts.length, km };
     })
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => {
+      const tripDiff = b.count - a.count;
+      if (tripDiff !== 0) return tripDiff;
+
+      const kmDiff = b.km - a.km;
+      if (kmDiff !== 0) return kmDiff;
+
+      return a.car.name.localeCompare(b.car.name, "pl") || a.car.id.localeCompare(b.car.id);
+    });
 
   return (
     <div className="grid md:grid-cols-2 gap-4">
