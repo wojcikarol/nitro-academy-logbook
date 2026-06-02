@@ -1,9 +1,10 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const distDir = path.resolve("dist");
 const clientDir = path.join(distDir, "client");
 const assetsDir = path.join(clientDir, "assets");
+const rootAssetsDir = path.join(distDir, "assets");
 
 const assetFiles = await readdir(assetsDir);
 const jsFiles = assetFiles.filter((file) => file.endsWith(".js"));
@@ -47,5 +48,6 @@ ${cssLinks}
 await mkdir(clientDir, { recursive: true });
 await writeFile(path.join(clientDir, "index.html"), html);
 await writeFile(path.join(distDir, "index.html"), html);
+await cp(assetsDir, rootAssetsDir, { recursive: true });
 
-console.log(`Generated dist/index.html and dist/client/index.html using ${entryFile}`);
+console.log(`Generated dist/index.html, dist/client/index.html and dist/assets using ${entryFile}`);

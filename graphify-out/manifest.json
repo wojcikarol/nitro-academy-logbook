@@ -120,12 +120,12 @@
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/scripts/generate-static-index.mjs": {
-    "mtime": 1780425942.1052465,
-    "ast_hash": "c04a17b68b70b8e7ed0c5252976277fe",
+    "mtime": 1780426195.18146,
+    "ast_hash": "ca68c9e626207bf16b851cf66f38fb07",
     "semantic_hash": ""
   },
   "/Users/karolwojcik/Documents/nitro-academy-logbook/.wrangler/deploy/config.json": {
-    "mtime": 1780425949.1815352,
+    "mtime": 1780426203.135146,
     "ast_hash": "9d663abcd158c67f171c437cb71f9503",
     "semantic_hash": ""
   },
