@@ -1,16 +1,16 @@
 # Graph Report - nitro-academy-logbook  (2026-06-02)
 
 ## Corpus Check
-- 100 files · ~25,940 words
+- 101 files · ~26,070 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 719 nodes · 1000 edges · 58 communities (48 shown, 10 thin omitted)
+- 723 nodes · 1005 edges · 55 communities (44 shown, 11 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `211a20fc`
+- Built from commit: `d6f5645e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,11 +42,9 @@
 - [[_COMMUNITY_Community 24|Community 24]]
 - [[_COMMUNITY_Community 25|Community 25]]
 - [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
-- [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
@@ -66,7 +64,6 @@
 - [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 53|Community 53]]
 - [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 57|Community 57]]
 
@@ -87,22 +84,22 @@
   src/components/ui/alert-dialog.tsx → src/lib/utils.ts
 - `AlertDialogFooter()` --calls--> `cn()`  [EXTRACTED]
   src/components/ui/alert-dialog.tsx → src/lib/utils.ts
-- `PaginationNext()` --calls--> `cn()`  [EXTRACTED]
-  src/components/ui/pagination.tsx → src/lib/utils.ts
 - `SheetFooter()` --calls--> `cn()`  [EXTRACTED]
   src/components/ui/sheet.tsx → src/lib/utils.ts
 - `DrawerHeader()` --calls--> `cn()`  [EXTRACTED]
   src/components/ui/drawer.tsx → src/lib/utils.ts
+- `DrawerFooter()` --calls--> `cn()`  [EXTRACTED]
+  src/components/ui/drawer.tsx → src/lib/utils.ts
 
-## Communities (58 total, 10 thin omitted)
+## Communities (55 total, 11 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.04
 Nodes (53): dependencies, class-variance-authority, @cloudflare/vite-plugin, clsx, cmdk, date-fns, embla-carousel-react, @hookform/resolvers (+45 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.07
-Nodes (36): getAppData, create, list, remove, setSelectedCar(), toggleFavorite, update, ensureSessionDashboard() (+28 more)
+Cohesion: 0.08
+Nodes (32): getAppData, create, list, remove, setSelectedCar(), toggleFavorite, update, ensureSessionDashboard() (+24 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
@@ -110,15 +107,15 @@ Nodes (38): useIsMobile(), Input, Separator, SheetContent, SheetContentProps, Sh
 
 ### Community 3 - "Community 3"
 Cohesion: 0.12
-Nodes (17): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+9 more)
+Nodes (16): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+8 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.13
-Nodes (18): Route, Route, Route, Route, getRouter(), DriversRoute, FileRoutesByFullPath, FileRoutesById (+10 more)
+Cohesion: 0.08
+Nodes (29): DriverForm(), Field, FieldProps, FormValues, schema, DriversPage(), Route, Route (+21 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.12
-Nodes (20): api, components, Car, DEFAULT_CAR_IMAGES, DEFAULT_CARS, DEFAULT_FUEL_PRICES, DEFAULT_ROUTES, DEFAULT_USERS (+12 more)
+Cohesion: 0.06
+Nodes (38): CarForm(), OwnerMode, FuelPanel(), Garage(), QUICK_DISTANCES, HeroStats(), HistoryTable(), RoutePanel() (+30 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.09
@@ -129,8 +126,8 @@ Cohesion: 0.14
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.12
-Nodes (15): cn(), Checkbox, HoverCardContent, PopoverContent, Progress, RadioGroup, RadioGroupItem, ResizableHandle() (+7 more)
+Cohesion: 0.13
+Nodes (14): cn(), Checkbox, HoverCardContent, PaginationNext(), PopoverContent, Progress, ResizableHandle(), ResizablePanelGroup() (+6 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.12
@@ -143,10 +140,6 @@ Nodes (14): Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Comm
 ### Community 11 - "Community 11"
 Cohesion: 0.12
 Nodes (15): compilerOptions, allowJs, allowSyntheticDefaultImports, forceConsistentCasingInFileNames, isolatedModules, jsx, lib, module (+7 more)
-
-### Community 12 - "Community 12"
-Cohesion: 0.24
-Nodes (4): Garage(), QUICK_DISTANCES, HistoryTable(), Route
 
 ### Community 13 - "Community 13"
 Cohesion: 0.25
@@ -161,8 +154,8 @@ Cohesion: 0.26
 Nodes (14): Button, Carousel, CarouselApi, CarouselContent, CarouselContext, CarouselContextProps, CarouselItem, CarouselNext (+6 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.26
-Nodes (12): ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), Pagination(), PaginationContent, PaginationEllipsis(), PaginationItem (+4 more)
+Cohesion: 0.29
+Nodes (11): ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), Pagination(), PaginationContent, PaginationEllipsis(), PaginationItem (+3 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.20
@@ -204,10 +197,6 @@ Nodes (6): DrawerContent, DrawerDescription, DrawerFooter(), DrawerHeader(), Dra
 Cohesion: 0.29
 Nodes (6): Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
 
-### Community 27 - "Community 27"
-Cohesion: 0.27
-Nodes (4): HeroStats(), Rankings(), StatsPanel(), rankDrivers()
-
 ### Community 28 - "Community 28"
 Cohesion: 0.33
 Nodes (5): ActionCtx, DatabaseReader, DatabaseWriter, MutationCtx, QueryCtx
@@ -219,10 +208,6 @@ Nodes (5): fuelType, DataModel, Doc, Id, TableNames
 ### Community 30 - "Community 30"
 Cohesion: 0.47
 Nodes (4): aiFiles, enabled, functions, $schema
-
-### Community 31 - "Community 31"
-Cohesion: 0.20
-Nodes (9): DriverForm(), Field, FieldProps, FormValues, schema, DriversPage(), Route, Register (+1 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.40
@@ -254,43 +239,39 @@ Nodes (3): TabsContent, TabsList, TabsTrigger
 
 ### Community 39 - "Community 39"
 Cohesion: 0.05
-Nodes (40): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+32 more)
+Nodes (41): name, private, scripts, build, build:dev, convex, dev, format (+33 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.20
 Nodes (9): ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut(), ContextMenuSubContent (+1 more)
 
-### Community 55 - "Community 55"
-Cohesion: 0.27
-Nodes (7): CarForm(), OwnerMode, FuelPanel(), RoutePanel(), useStore(), GaragePage(), Route
-
 ### Community 56 - "Community 56"
-Cohesion: 0.25
-Nodes (7): assetsDir, clientDir, cssFiles, cssLinks, distDir, jsFiles, rootAssetsDir
+Cohesion: 0.20
+Nodes (9): assetsDir, clientDir, cssFiles, cssLinks, distDir, entryFile, jsFiles, rootAssetsDir (+1 more)
 
 ### Community 57 - "Community 57"
 Cohesion: 0.50
 Nodes (3): AccordionContent, AccordionItem, AccordionTrigger
 
 ## Knowledge Gaps
-- **424 isolated node(s):** `name`, `private`, `sideEffects`, `type`, `dev` (+419 more)
+- **427 isolated node(s):** `name`, `private`, `sideEffects`, `type`, `dev` (+422 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 8` to `Community 2`, `Community 9`, `Community 10`, `Community 14`, `Community 15`, `Community 16`, `Community 18`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 25`, `Community 26`, `Community 32`, `Community 33`, `Community 35`, `Community 36`, `Community 37`, `Community 38`, `Community 44`, `Community 57`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 8` to `Community 2`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Community 18`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 25`, `Community 26`, `Community 32`, `Community 33`, `Community 35`, `Community 36`, `Community 37`, `Community 38`, `Community 44`, `Community 57`?**
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Community 34` to `Community 39`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Community 0` to `Community 39`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `sideEffects` to the rest of the system?**
-  _424 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _427 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.07397959183673469 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08350951374207188 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.052525252525252523 - nodes in this community are weakly interconnected._

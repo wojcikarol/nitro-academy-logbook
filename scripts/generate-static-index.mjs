@@ -1,26 +1,48 @@
-import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { build } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const distDir = path.resolve("dist");
+const spaDir = path.join(distDir, "spa");
 const clientDir = path.join(distDir, "client");
-const assetsDir = path.join(clientDir, "assets");
+const assetsDir = path.join(spaDir, "assets");
 const rootAssetsDir = path.join(distDir, "assets");
+
+await rm(spaDir, { recursive: true, force: true });
+
+await build({
+  configFile: false,
+  root: process.cwd(),
+  base: "/",
+  plugins: [react(), tailwindcss(), tsconfigPaths()],
+  build: {
+    outDir: spaDir,
+    emptyOutDir: true,
+    rollupOptions: {
+      input: path.resolve("src/spa-entry.tsx"),
+      output: {
+        entryFileNames: "assets/[name]-[hash].js",
+        chunkFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash][extname]",
+      },
+    },
+  },
+  resolve: {
+    dedupe: ["react", "react-dom", "@tanstack/react-router"],
+  },
+});
 
 const assetFiles = await readdir(assetsDir);
 const jsFiles = assetFiles.filter((file) => file.endsWith(".js"));
 const cssFiles = assetFiles.filter((file) => file.endsWith(".css")).sort();
 
-let entryFile;
-for (const file of jsFiles) {
-  const code = await readFile(path.join(assetsDir, file), "utf8");
-  if (code.includes("hydrateRoot(document") || code.includes(".hydrateRoot(document")) {
-    entryFile = file;
-    break;
-  }
-}
+const entryFile = jsFiles.find((file) => file.startsWith("spa-entry-"));
 
 if (!entryFile) {
-  throw new Error("Could not find the client entry bundle in dist/client/assets.");
+  throw new Error("Could not find the SPA entry bundle in dist/spa/assets.");
 }
 
 const cssLinks = cssFiles
@@ -41,13 +63,18 @@ const html = `<!doctype html>
 ${cssLinks}
     <script type="module" crossorigin src="/assets/${entryFile}"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
 `;
 
 await mkdir(clientDir, { recursive: true });
+await rm(rootAssetsDir, { recursive: true, force: true });
 await writeFile(path.join(clientDir, "index.html"), html);
 await writeFile(path.join(distDir, "index.html"), html);
 await cp(assetsDir, rootAssetsDir, { recursive: true });
+await cp(assetsDir, path.join(clientDir, "assets"), { recursive: true });
+await rm(spaDir, { recursive: true, force: true });
 
-console.log(`Generated dist/index.html, dist/client/index.html and dist/assets using ${entryFile}`);
+console.log(`Generated static SPA index files and assets using ${entryFile}`);
